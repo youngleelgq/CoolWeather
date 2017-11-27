@@ -1,7 +1,9 @@
-package com.pax.coolweather;
+package com.pax.coolweather.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.pax.coolweather.R;
 
 /**
  * @author ligq
