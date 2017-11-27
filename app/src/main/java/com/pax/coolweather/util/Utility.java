@@ -3,10 +3,12 @@ package com.pax.coolweather.util;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.google.gson.Gson;
 import com.pax.coolweather.constant.Const;
 import com.pax.coolweather.db.City;
 import com.pax.coolweather.db.County;
 import com.pax.coolweather.db.Province;
+import com.pax.coolweather.gson.Weather;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -94,5 +96,23 @@ public class Utility {
             }
         }
         return false;
+    }
+
+    /**
+     * 解析服务器返回天气的数据
+     *
+     * @param response 天气数据
+     * @return 天气实体类
+     */
+    public static Weather handleWeatherResponse(String response) {
+        try {
+            JSONObject jsonObject = new JSONObject(response);
+            JSONArray jsonArray = jsonObject.getJSONArray("HeWeather");
+            String weatherContent = jsonArray.getJSONObject(0).toString();
+            return new Gson().fromJson(weatherContent, Weather.class);
+        } catch (JSONException e) {
+            Log.i(Const.TAG, "handleWeatherResponse: e:" + e.getLocalizedMessage());
+        }
+        return null;
     }
 }

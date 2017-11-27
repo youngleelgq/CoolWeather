@@ -1,4 +1,4 @@
-package com.pax.coolweather.ui;
+package com.pax.coolweather.ui.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
