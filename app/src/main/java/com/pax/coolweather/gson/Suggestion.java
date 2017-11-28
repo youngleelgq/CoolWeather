@@ -10,7 +10,7 @@ public class Suggestion {
     @SerializedName("comf")
     public Comfort comfort;
     @SerializedName("cw")
-    public CardWash cardWash;
+    public CardWash carWash;
     public Sport sport;
 
     public class Comfort {
